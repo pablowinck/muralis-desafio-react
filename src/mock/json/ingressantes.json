@@ -5,21 +5,24 @@
       "nome": "João",
       "curso": "Engenharia de Software",
       "estado": "São Paulo",
-      "cidade": "Mogi das Cruzes"
+      "cidade": "Mogi das Cruzes",
+      "dataCadastro": "2022-12-01"
     },
     {
       "id": 2,
       "nome": "Maria",
       "curso": "Engenharia de Software",
       "estado": "Rio de Janeiro",
-      "cidade": "Angra dos Reis"
+      "cidade": "Angra dos Reis",
+      "dataCadastro": "2022-12-01"
     },
     {
       "id": 3,
       "nome": "José",
       "curso": "Analise e Desenvolvimento de Sistemas",
       "estado": "Minas Gerais",
-      "cidade": "Monte Azul"
+      "cidade": "Monte Azul",
+      "dataCadastro": "2023-01-01"
     }
   ]
 }

@@ -10,4 +10,5 @@ export type Ingressante = {
   curso: string;
   estado: string;
   cidade: string;
+  dataCadastro: string;
 };
