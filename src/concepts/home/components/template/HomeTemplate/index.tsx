@@ -2,6 +2,7 @@ import React from "react";
 import PorcentagemPorCurso from "../../organisms/PorcentagemPorCurso";
 import QuantidadeMesVerticalBar from "../../organisms/QuantidadeMesVerticalBar";
 import TotalInscritos from "../../organisms/TotalInscritos";
+import QuantidadeMesMultiaxis from "../../organisms/QuantidadeMesMultiaxis";
 
 const HomeTemplate: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const HomeTemplate: React.FC = () => {
           <TotalInscritos />
           <QuantidadeMesVerticalBar />
           <PorcentagemPorCurso />
-          <div className="bg-[red] col-span-3">5</div>
+          <QuantidadeMesMultiaxis />
         </div>
       </div>
     </div>
