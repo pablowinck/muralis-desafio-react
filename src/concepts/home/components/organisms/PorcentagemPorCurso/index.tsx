@@ -3,28 +3,9 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { useFetchPorcentagemCurso } from "../../../hooks/useFetchPorcentagemCurso";
 import Image from "next/image";
+import { backgroundColors, borderColors } from "../../../../../utils/colors";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-const backgroundColors = [
-  "rgba(249, 172, 20, 0.8)",
-  "rgba(16, 56, 92, 0.8)",
-  "rgba(255, 206, 86, 0.8)",
-  "rgba(75, 192, 192, 0.8)",
-  "rgba(153, 102, 255, 0.8)",
-  "rgba(255, 159, 64, 0.8)",
-  "rgba(255, 99, 132, 0.8)",
-  "rgba(54, 162, 235, 0.8)",
-];
-
-const borderColors = [
-  "rgb(249, 172, 20)",
-  "rgb(16, 56, 92)",
-  "rgba(255, 206, 86, 1)",
-  "rgba(75, 192, 192, 1)",
-  "rgba(153, 102, 255, 1)",
-  "rgba(255, 159, 64, 1)",
-];
 
 const Container = ({ children }: { children: React.ReactNode }) => (
   <div className="bg-white row-span-2 flex items-center justify-center">
@@ -59,6 +40,8 @@ const PorcentagemPorCurso: React.FC = () => {
         height={400}
         width={600}
         options={{
+          responsive: true,
+          borderColor: "black",
           plugins: {
             legend: {
               position: "bottom",
@@ -67,6 +50,9 @@ const PorcentagemPorCurso: React.FC = () => {
                 padding: 10,
               },
             },
+          },
+          hover: {
+            mode: "index",
           },
         }}
       />

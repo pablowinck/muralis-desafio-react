@@ -18,6 +18,14 @@
     },
     {
       "id": 3,
+      "nome": "Maria",
+      "curso": "Tecnologia da Informação",
+      "estado": "Rio de Janeiro",
+      "cidade": "Angra dos Reis",
+      "dataCadastro": "2022-12-01"
+    },
+    {
+      "id": 4,
       "nome": "José",
       "curso": "Analise e Desenvolvimento de Sistemas",
       "estado": "Minas Gerais",

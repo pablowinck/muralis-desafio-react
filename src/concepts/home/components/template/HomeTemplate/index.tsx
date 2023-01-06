@@ -1,6 +1,7 @@
 import React from "react";
-import TotalInscritos from "../../organisms/TotalInscritos";
 import PorcentagemPorCurso from "../../organisms/PorcentagemPorCurso";
+import QuantidadeMesVerticalBar from "../../organisms/QuantidadeMesVerticalBar";
+import TotalInscritos from "../../organisms/TotalInscritos";
 
 const HomeTemplate: React.FC = () => {
   return (
@@ -12,9 +13,9 @@ const HomeTemplate: React.FC = () => {
           <div className="bg-blue-700" />
           <div className="bg-blue-700" />
           <TotalInscritos />
-          <div className="bg-[red] col-span-3">5</div>
+          <QuantidadeMesVerticalBar />
           <PorcentagemPorCurso />
-          <div className="bg-[red] col-span-3">7</div>
+          <div className="bg-[red] col-span-3">5</div>
         </div>
       </div>
     </div>

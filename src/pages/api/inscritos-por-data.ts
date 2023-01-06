@@ -6,17 +6,33 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     .get<Ingressante[]>("/ingressantes")
     .then((res) => res.data);
 
-  const totalPorMes = ingressantes.reduce((acc, ingressante) => {
+  // const totalPorMes = ingressantes.reduce((acc, ingressante) => {
+  //   const mes = ingressante.dataCadastro.split("-")[1];
+  //   const ano = ingressante.dataCadastro.split("-")[0];
+  //   const key = `${mes}/${ano}`;
+  //   if (acc[key]) {
+  //     acc[key] += 1;
+  //   } else {
+  //     acc[key] = 1;
+  //   }
+  //   return acc;
+  // }, {} as Record<string, number>);
+
+  const totalPorMesEcurso = ingressantes.reduce((acc, ingressante) => {
     const mes = ingressante.dataCadastro.split("-")[1];
     const ano = ingressante.dataCadastro.split("-")[0];
     const key = `${mes}/${ano}`;
     if (acc[key]) {
-      acc[key] += 1;
+      if (acc[key][ingressante.curso]) {
+        acc[key][ingressante.curso] += 1;
+      } else {
+        acc[key][ingressante.curso] = 1;
+      }
     } else {
-      acc[key] = 1;
+      acc[key] = { [ingressante.curso]: 1 };
     }
     return acc;
-  }, {} as Record<string, number>);
+  }, {} as Record<string, Record<string, number>>);
 
-  return res.status(200).json(totalPorMes);
+  return res.status(200).json(totalPorMesEcurso);
 }
