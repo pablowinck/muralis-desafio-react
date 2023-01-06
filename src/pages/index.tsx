@@ -1,5 +1,5 @@
 import Head from "next/head";
-import HomeTemplate from "../concepts/home/template/HomeTemplate";
+import HomeTemplate from "../concepts/home/components/template/HomeTemplate";
 
 export default function Home() {
   return (

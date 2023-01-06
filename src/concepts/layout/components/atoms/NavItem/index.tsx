@@ -13,8 +13,6 @@ type Props = {
 
 const NavItem: React.FC<Props> = ({ item }) => {
   const router = useRouter();
-  console.log("is same route", router.pathname === item.path);
-
   return (
     <Link href={item.path}>
       <div

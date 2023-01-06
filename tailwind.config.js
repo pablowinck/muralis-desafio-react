@@ -25,6 +25,9 @@ module.exports = {
         "layout-md": "200px 100%",
         "layout-sm": "0px 100%",
       },
+      dropShadow: {
+        "3xl": "0 3px 12px rgb(0 0 0 / 0.4)",
+      },
       animation: {
         enter: "enter 1s ease-in-out",
       },
