@@ -7,6 +7,7 @@ module.exports = {
       white: "#ffffff",
       black: "#000000",
       "blue-100": "#ecf0f3",
+      "blue-400": "#143c60",
       "blue-500": "#1a4266",
       "blue-600": "#10385c",
       "blue-700": "#0f3258",
@@ -19,7 +20,7 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        "layout-xl": "400px 100%",
+        "layout-xl": "350px 100%",
         "layout-lg": "300px 100%",
         "layout-md": "200px 100%",
         "layout-sm": "0px 100%",
