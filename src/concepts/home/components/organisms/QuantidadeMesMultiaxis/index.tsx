@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import {
   Chart as ChartJS,
@@ -13,6 +13,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useFetchInscritosPorData } from "../../../hooks/useFetchInscritosPorData";
+import Image from "next/image";
 
 ChartJS.register(
   CategoryScale,
@@ -24,50 +25,45 @@ ChartJS.register(
   Legend,
   Filler
 );
-const options = {
-  responsive: true,
-  interaction: {
-    mode: "index" as const,
-    intersect: false,
-  },
-  stacked: false,
-  plugins: {
-    title: {
-      display: true,
-      text: "Chart.js Line Chart - Multi Axis",
-    },
-  },
-  scales: {
-    y: {
-      type: "linear" as const,
-      display: true,
-      position: "left" as const,
-    },
-    y1: {
-      type: "linear" as const,
-      display: true,
-      position: "right" as const,
-      grid: {
-        drawOnChartArea: false,
-      },
-    },
-  },
-};
+
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div className="col-span-3 bg-white p-4 flex items-center justify-center">
+    {children}
+  </div>
+);
 
 const QuantidadeMesMultiaxis: React.FC = () => {
-  const { chartData } = useFetchInscritosPorData();
-  if (!chartData) return <div>Carregando...</div>;
-  const data = {
-    labels: chartData.labels,
-    datasets: chartData.datasets.map((dataset) => {
-      return {
-        ...dataset,
-        fill: true,
-      };
+  const { chartData, isLoading, isIdle, isError } = useFetchInscritosPorData();
+
+  const data = useMemo(
+    () => ({
+      labels: chartData.labels,
+      datasets: chartData.datasets.map((dataset) => {
+        return {
+          ...dataset,
+          fill: true,
+        };
+      }),
     }),
-  };
+    [chartData.datasets, chartData.labels]
+  );
+
+  if (isError) return <Container>Erro ao carregar dados</Container>;
+
+  if (isLoading || isIdle)
+    return (
+      <Container>
+        <Image
+          src="/loading.svg"
+          height={100}
+          width={100}
+          alt="carregando por mes multiaxis"
+        />
+      </Container>
+    );
+
   return (
-    <div className="col-span-3 bg-white p-4">
+    <Container>
       <Line
         height="160px"
         width="700px"
@@ -83,7 +79,7 @@ const QuantidadeMesMultiaxis: React.FC = () => {
           },
         }}
       />
-    </div>
+    </Container>
   );
 };
 
