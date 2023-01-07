@@ -53,3 +53,54 @@ npm:
       
 ### Producao
 Basta acessar os links do início do README.md, no entanto como os dados estão no filesystem do servidor, após um tempo de inatividade os dados podem ser perdidos. Além de ter divergência entre réplicas da aplicação.
+
+### Estrutura de pastas
+
+- **Domain-Driven Design**: A estrutura de pastas foi baseada no conceito de DDD, onde cada pasta representa um domínio da aplicação. [Ler mais](https://css-tricks.com/domain-driven-design-with-react/)
+- **Atomic Design**: A estrutura de pastas foi baseada no Atomic Design, uma metodologia de design de componentes que permite a criação de componentes reutilizáveis e escaláveis. [Ler mais](https://medium.com/pretux/atomic-design-o-que-%C3%A9-como-surgiu-e-sua-import%C3%A2ncia-para-a-cria%C3%A7%C3%A3o-do-design-system-e3ac7b5aca2c)
+
+```bash
+├── public # Arquivos estáticos
+└── src
+    ├── concepts
+    │   ├── home
+    │   │   ├── components
+    │   │   │   ├── organisms
+    │   │   │   └── templates
+    │   │   └── hooks
+    │   ├── ingressantes
+    │   │   ├── components
+    │   │   │   ├── molecules
+    │   │   │   ├── organisms
+    │   │   │   └── templates
+    │   │   └── hooks
+    │   └── layout
+    │       ├── components
+    │       │   ├── molecules
+    │       │   ├── organisms
+    │       │   └── templates
+    │       └── hooks
+    │
+    ├── ui # Componentes reutilizáveis
+    │   ├── atoms
+    │   └── molecules
+    │
+    ├── pages # Rotas da aplicação
+    │   ├── api # Endpoints da aplicação
+    │   │   ├── inscritos-por-data.tsx
+    │   │   ├── porcentagem-curso.tsx
+    │   │   └── total-curso.tsx
+    │   ├── _app.tsx
+    │   ├── _document.tsx
+    │   ├── index.tsx
+    │   └── ingressantes.tsx
+    │
+    ├── mock # Arquivos de mock
+    │
+    ├── styles # Arquivos de estilo
+    │
+    ├── services
+    │   └── api.ts
+    │
+    └── utils
+        └─── colors.ts
