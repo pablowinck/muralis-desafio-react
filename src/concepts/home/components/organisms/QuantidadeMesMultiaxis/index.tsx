@@ -65,7 +65,7 @@ const QuantidadeMesMultiaxis: React.FC = () => {
   return (
     <Container>
       <Line
-        height="160px"
+        height="130px"
         width="700px"
         data={data}
         options={{

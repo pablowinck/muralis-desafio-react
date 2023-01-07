@@ -52,7 +52,7 @@ const QuantidadeMesVerticalBar: React.FC = () => {
   return (
     <Container>
       <Bar
-        height="160px"
+        height="150px"
         width="700px"
         options={{
           responsive: true,
