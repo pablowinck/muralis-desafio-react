@@ -3,7 +3,7 @@ import { Ingressante, api } from "../../services/api";
 
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const ingressantes = await api
-    .get<Ingressante[]>("/ingressantes")
+    .get<Ingressante[]>("/ingressantes?_sort=dataCadastro")
     .then((res) => res.data);
 
   const totalPorMes = ingressantes.reduce((acc, ingressante) => {
