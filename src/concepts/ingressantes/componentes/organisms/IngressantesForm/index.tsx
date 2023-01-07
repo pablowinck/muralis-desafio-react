@@ -5,6 +5,7 @@ import Select from "../../../../../ui/molecules/Select";
 import Button from "../../../../../ui/atoms/Button";
 import { useCadastraIntegrante } from "../../../hooks/useCadastraIngressante";
 import Alert from "../../../../../ui/molecules/Alert";
+import { useRouter } from "next/router";
 
 const cursos = [
   { id: 1, nome: "Matemática" },
@@ -36,6 +37,7 @@ const IngressantesForm: React.FC = () => {
   const [cidade, setCidade] = useState<number>(1);
   const [curso, setCurso] = useState<number>(1);
   const { mutate, isLoading, isError, isSuccess } = useCadastraIntegrante();
+  const router = useRouter();
 
   const cidadesOptions = useMemo(
     () =>
@@ -109,7 +111,12 @@ const IngressantesForm: React.FC = () => {
         />
       </div>
       <div className="flex items-center justify-between mt-2">
-        <Button className="min-w-[5rem] px-3" color="alert" type="button">
+        <Button
+          className="min-w-[5rem] px-3"
+          color="alert"
+          type="button"
+          onClick={() => router.push("/")}
+        >
           Sair
         </Button>
         <Button
