@@ -3,6 +3,7 @@ import Text from "../../../../../ui/atoms/Label";
 import Input from "../../../../../ui/atoms/Input";
 import Select from "../../../../../ui/molecules/Select";
 import Button from "../../../../../ui/atoms/Button";
+import { useCadastraIntegrante } from "../../../hooks/useCadastraIngressante";
 
 const cursos = [
   { id: 1, nome: "Matemática" },
@@ -33,6 +34,7 @@ const IngressantesForm: React.FC = () => {
   const [estado, setEstado] = useState<number>(1);
   const [cidade, setCidade] = useState<number>(1);
   const [curso, setCurso] = useState<number>(1);
+  const { mutate, isLoading } = useCadastraIntegrante();
 
   const cidadesOptions = useMemo(
     () =>
@@ -51,7 +53,13 @@ const IngressantesForm: React.FC = () => {
       className="py-2 px-4 flex flex-col gap-2"
       onSubmit={(e) => {
         e.preventDefault();
-        console.log({ nome, curso, estado, cidade });
+        mutate({
+          nome,
+          curso: cursos.find((c) => c.id === curso)?.nome || "",
+          estado: estados.find((e) => e.id === estado)?.nome || "",
+          cidade: cidades.find((c) => c.id === cidade)?.nome || "",
+          dataCadastro: new Date().toISOString().split("T")[0],
+        });
       }}
     >
       <div className="flex flex-col gap-2">
@@ -99,8 +107,13 @@ const IngressantesForm: React.FC = () => {
         <Button className="w-20" color="alert" type="button">
           Sair
         </Button>
-        <Button className="w-20" color="success" type="submit">
-          Gravar
+        <Button
+          disabled={isLoading}
+          className="w-20"
+          color="success"
+          type="submit"
+        >
+          {isLoading ? "Gravando..." : "Gravar"}
         </Button>
       </div>
     </form>

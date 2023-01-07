@@ -26,6 +26,9 @@ const Button: React.FC<
         " "
       )} ${className} p-2 rounded-md transition-all duration-300`}
       {...props}
+      style={{
+        backgroundColor: props.disabled ? "#ccc !important" : undefined,
+      }}
     />
   );
 };
