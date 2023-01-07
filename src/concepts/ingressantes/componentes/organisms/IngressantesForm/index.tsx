@@ -4,6 +4,7 @@ import Input from "../../../../../ui/atoms/Input";
 import Select from "../../../../../ui/molecules/Select";
 import Button from "../../../../../ui/atoms/Button";
 import { useCadastraIntegrante } from "../../../hooks/useCadastraIngressante";
+import Alert from "../../../../../ui/molecules/Alert";
 
 const cursos = [
   { id: 1, nome: "Matemática" },
@@ -34,7 +35,7 @@ const IngressantesForm: React.FC = () => {
   const [estado, setEstado] = useState<number>(1);
   const [cidade, setCidade] = useState<number>(1);
   const [curso, setCurso] = useState<number>(1);
-  const { mutate, isLoading } = useCadastraIntegrante();
+  const { mutate, isLoading, isError, isSuccess } = useCadastraIntegrante();
 
   const cidadesOptions = useMemo(
     () =>
@@ -66,6 +67,7 @@ const IngressantesForm: React.FC = () => {
         <Text className="px-2">Nome</Text>
         <Input
           required
+          disabled={isLoading}
           onChange={(e) => setNome(e.target.value)}
           value={nome}
         />
@@ -74,6 +76,7 @@ const IngressantesForm: React.FC = () => {
         <Text className="px-2">Curso</Text>
         <Select
           required
+          disabled={isLoading}
           options={cursos.map((curso) => ({
             value: curso.id.toString(),
             label: curso.nome,
@@ -86,6 +89,7 @@ const IngressantesForm: React.FC = () => {
         <Text className="px-2">Estado</Text>
         <Select
           required
+          disabled={isLoading}
           options={estados.map((estado) => ({
             value: estado.id.toString(),
             label: estado.nome,
@@ -98,24 +102,37 @@ const IngressantesForm: React.FC = () => {
         <Text className="px-2">Cidades</Text>
         <Select
           required
+          disabled={isLoading}
           options={cidadesOptions}
           onChange={(e) => setCidade(Number(e.target.value))}
           value={cidade.toString()}
         />
       </div>
       <div className="flex items-center justify-between mt-2">
-        <Button className="w-20" color="alert" type="button">
+        <Button className="min-w-[5rem] px-3" color="alert" type="button">
           Sair
         </Button>
         <Button
           disabled={isLoading}
-          className="w-20"
+          className="min-w-[5rem] px-3"
           color="success"
           type="submit"
         >
           {isLoading ? "Gravando..." : "Gravar"}
         </Button>
       </div>
+      <Alert
+        color="error"
+        open={isError}
+        message="Ocorreu um erro ao cadastrar o ingressante."
+        title="Erro!"
+      />
+      <Alert
+        color="success"
+        open={isSuccess}
+        message="O ingressante foi cadastrado com sucesso."
+        title="Sucesso!"
+      />
     </form>
   );
 };

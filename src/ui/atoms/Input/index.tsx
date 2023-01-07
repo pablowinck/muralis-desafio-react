@@ -7,7 +7,7 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
   return (
     <input
       className={`border-blue-200 border-2 rounded-md 
-      ${props.disabled ? "bg-gray-200" : "bg-white"}
+      ${props.disabled ? "bg-gray-200 text-gray-500" : "bg-white"}
       ${
         !props.disabled ? "hover:border-blue-600" : ""
       } transition-all duration-300 p-1 ${className}`}

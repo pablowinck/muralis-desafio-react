@@ -15,20 +15,24 @@ const colors = {
     text: "text-white",
     hover: "hover:bg-success-hover",
   },
+  disabled: {
+    bg: "bg-gray-200",
+    text: "text-gray-400",
+    hover: "hover:bg-gray-200",
+  },
 };
 
 const Button: React.FC<
   React.ButtonHTMLAttributes<HTMLButtonElement> & Props
-> = ({ className, color, ...props }) => {
+> = ({ className, color, disabled, ...props }) => {
   return (
     <button
-      className={`${Object.values(colors[color]).join(
+      className={`${Object.values(colors[disabled ? "disabled" : color]).join(
         " "
-      )} ${className} p-2 rounded-md transition-all duration-300`}
+      )} ${className} p-2 rounded-md transition-all duration-300
+      ${disabled ? "pointer-events-none select-none" : "cursor-pointer"}
+      `}
       {...props}
-      style={{
-        backgroundColor: props.disabled ? "#ccc !important" : undefined,
-      }}
     />
   );
 };

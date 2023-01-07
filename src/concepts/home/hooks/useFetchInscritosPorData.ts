@@ -51,7 +51,5 @@ export const useFetchInscritosPorData = () => {
     };
   }, [cursos, data]);
 
-  console.log("cursos", cursos);
-
   return { data, chartData, isLoading, isIdle, isError };
 };

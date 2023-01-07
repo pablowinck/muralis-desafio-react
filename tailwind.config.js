@@ -22,6 +22,24 @@ module.exports = {
       "gray-400": "#a3a3a3",
       "gray-500": "#737373",
       "gray-600": "#525252",
+      "red-100": "#f8d7da",
+      "red-200": "#f5c2c7",
+      "red-300": "#f0a8b0",
+      "red-400": "#e88e99",
+      "red-500": "#e37482",
+      "red-600": "#dc5a6b",
+      "red-700": "#d64054",
+      "red-800": "#d02b3e",
+      "red-900": "#c91a2d",
+      "green-100": "#d4edda",
+      "green-200": "#c3e6cb",
+      "green-300": "#a9dba3",
+      "green-400": "#7fc47f",
+      "green-500": "#58b957",
+      "green-600": "#419d40",
+      "green-700": "#2e832e",
+      "green-800": "#1d6a1d",
+      "green-900": "#0e550e",
     },
     extend: {
       gridTemplateColumns: {
@@ -35,11 +53,16 @@ module.exports = {
       },
       animation: {
         enter: "enter 1s ease-in-out",
+        "enter-down": "enter-down 1s ease-in-out",
       },
       keyframes: {
         enter: {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
+        },
+        "enter-down": {
+          "0%": { opacity: 0, transform: "translateY(20px)" },
+          "100%": { opacity: 1, transform: "translateY(0px)" },
         },
       },
     },

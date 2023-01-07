@@ -20,7 +20,7 @@ const Select: React.FC<
       className={`border-blue-200 border-2 rounded-md 
       ${
         props.disabled
-          ? "bg-gray-200 pointer-events-none select-none"
+          ? "bg-gray-200 text-gray-500 pointer-events-none select-none"
           : "bg-white cursor-pointer hover:border-blue-600"
       } transition-all duration-300 p-1 focus:ring-blue-500 focus:border-blue-500 block w-full dark:bg-gray-700 ${className}`}
     >
