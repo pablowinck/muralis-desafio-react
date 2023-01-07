@@ -1,5 +1,5 @@
 import React from "react";
-import IngressantesForm from "../concepts/ingressantes/componentes/templates/IngressantesForm";
+import IngressantesTemplate from "../concepts/ingressantes/componentes/templates/IngressantesTemplate";
 import Head from "next/head";
 
 const Ingressantes: React.FC = () => {
@@ -11,7 +11,7 @@ const Ingressantes: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/arvore.png" />
       </Head>
-      <IngressantesForm />
+      <IngressantesTemplate />
     </>
   );
 };
