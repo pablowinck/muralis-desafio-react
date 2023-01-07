@@ -24,11 +24,15 @@
 ### Solução proposta
 
 - Para o front-end foi utilizado o framework [Next.js](https://nextjs.org/), um framework React que permite a criação de aplicações SSR (Server Side Rendering).
+- O CSS foi escrito utilizando o framework [Tailwind CSS](https://tailwindcss.com/), um framework CSS que permite a criação de componentes reutilizáveis e com uma sintaxe simples.
+- Para os gráficos foi utilizado a biblioteca [React-Chartjs-2](https://react-chartjs-2.js.org/), uma biblioteca que permite a criação de gráficos utilizando a biblioteca [Chart.js](https://www.chartjs.org/).
 - Para simular o back-end foi utilizado duas frentes:
   - O [json-server](https://www.npmjs.com/package/json-server), um servidor REST que permite a criação de APIs REST com base num arquivo JSON.
   - A propria API do Next.js, que permite a criação de rotas e endpoints de forma simples e rápida.
 
-### Como rodar localmente
+## Como rodar
+
+### Localmente
 Para rodar localmente se faz necessario 2 terminais, um para o json-server, e outro para o Next.js.
 
 yarn:
@@ -46,3 +50,6 @@ npm:
   2.  ```bash
       npm i
       npm run dev
+      
+### Producao
+Basta acessar os links do início do README.md, no entanto como os dados estão no filesystem do servidor, após um tempo de inatividade os dados podem ser perdidos. Além de ter divergência entre réplicas da aplicação.
