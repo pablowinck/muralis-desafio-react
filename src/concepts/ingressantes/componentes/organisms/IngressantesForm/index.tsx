@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Text from "../../../../../ui/atoms/Label";
 import Input from "../../../../../ui/atoms/Input";
 import Select from "../../../../../ui/molecules/Select";
@@ -41,6 +41,11 @@ const IngressantesForm: React.FC = () => {
         .map((cidade) => ({ value: cidade.id.toString(), label: cidade.nome })),
     [estado]
   );
+
+  useEffect(() => {
+    setCidade(+cidadesOptions[0].value);
+  }, [cidadesOptions]);
+
   return (
     <form
       className="py-2 px-4 flex flex-col gap-2"
